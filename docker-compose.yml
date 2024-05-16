@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres:12
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./:/app/
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    networks:
+      - internal
+
+  app:
+    container_name: product-ms
+    command: java -jar target/ProductMicroService-0.0.1-SNAPSHOT.jar
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    volumes:
+      - ./:/app/app
+    links:
+      - database
+    networks:
+      - internal
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/postgres
+
+networks:
+  internal:
+    name: internal
+
+
+
