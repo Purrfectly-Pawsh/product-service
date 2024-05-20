@@ -21,6 +21,14 @@ public class DataLoader implements CommandLineRunner {
         this.productRepository = productRepository;
     }
 
+    @Override
+    public void run(String... args) throws Exception {
+        log.info("Loading data");
+        List<Product> products = createProducts();
+        productRepository.saveAll(products);
+        log.info("Data loaded");
+    }
+
     private List<Product> createProducts() {
         List<Product> petShopItems = Arrays.asList(
                 Product.builder()
@@ -122,15 +130,6 @@ public class DataLoader implements CommandLineRunner {
                         .category(Category.BIRD)
                         .build()
         );
-
         return petShopItems;
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-        log.info("Loading data");
-        List<Product> products = createProducts();
-        productRepository.saveAll(products);
-        log.info("Data loaded");
     }
 }
