@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.UUID;
 
 public interface IProductRepository extends CrudRepository<Product, UUID> {
-
+    Iterable<Product> findByNameOrDescriptionOrCategoryOrProducerContainingIgnoreCase(String keyword);
 }
 
 

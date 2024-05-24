@@ -27,4 +27,9 @@ public class ProductService implements IProductService {
         return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
     }
 
+    @Override
+    public Iterable<Product> getProductsByKeyword(String keyword) {
+        return productRepository.findByNameOrDescriptionOrCategoryOrProducerContainingIgnoreCase(keyword);
+    }
+
 }
