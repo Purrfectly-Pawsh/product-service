@@ -1,5 +1,6 @@
 package de.htw.productmicroservice.core.domain.service.impl;
 
+import de.htw.productmicroservice.core.domain.model.Category;
 import de.htw.productmicroservice.core.domain.model.Product;
 import de.htw.productmicroservice.core.domain.service.impl.exception.ProductNotFoundException;
 import de.htw.productmicroservice.core.domain.service.interfaces.IProductRepository;
@@ -29,7 +30,13 @@ public class ProductService implements IProductService {
 
     @Override
     public Iterable<Product> getProductsByKeyword(String keyword) {
-        return productRepository.findByNameOrDescriptionOrCategoryOrProducerContainingIgnoreCase(keyword);
+        Category categoryFromKeyword;
+        try {
+            categoryFromKeyword = Category.valueOf(keyword.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            categoryFromKeyword = null;
+        }
+        return productRepository.findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCaseOrCategoryOrProducerContainingIgnoreCase(keyword, keyword, categoryFromKeyword, keyword);
     }
 
 }

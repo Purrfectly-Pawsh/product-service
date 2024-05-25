@@ -1,5 +1,6 @@
 package de.htw.productmicroservice.port.user;
 
+import de.htw.productmicroservice.core.domain.model.Category;
 import de.htw.productmicroservice.core.domain.model.Product;
 import de.htw.productmicroservice.core.domain.service.interfaces.IProductService;
 import org.springframework.web.bind.annotation.*;
@@ -27,4 +28,8 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
+    @GetMapping("/products/search")
+    public Iterable<Product> getProductsByKeyword(@RequestParam String keyword) {
+        return productService.getProductsByKeyword(keyword);
+    }
 }
