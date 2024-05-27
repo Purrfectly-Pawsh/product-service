@@ -1,6 +1,5 @@
 package de.htw.productmicroservice.core.domain.service.interfaces;
 
-import de.htw.productmicroservice.core.domain.model.Category;
 import de.htw.productmicroservice.core.domain.model.Product;
 import de.htw.productmicroservice.core.domain.service.impl.exception.ProductNotFoundException;
 
