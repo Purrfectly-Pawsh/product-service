@@ -12,6 +12,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
+    networks: 
+      - product-nw
 
   product-service:
     command: java -jar target/ProductMicroService-0.0.1-SNAPSHOT.jar
@@ -28,10 +30,16 @@ services:
       - database
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/postgres
+    networks:
+        - product-nw
+        - service-nw
 
 networks:
-  default:
+  product-nw:
+    name: product-nw
+  service-nw:
     name: service-nw
+    driver: bridge
 
 
 
