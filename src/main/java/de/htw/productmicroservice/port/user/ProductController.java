@@ -10,7 +10,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/v1")
-@CrossOrigin(origins = "*")
 public class ProductController {
 
     private final IProductService productService;
