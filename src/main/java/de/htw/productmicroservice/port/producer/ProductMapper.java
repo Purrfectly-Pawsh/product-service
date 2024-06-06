@@ -14,7 +14,7 @@ public class ProductMapper {
                 .name(product.getName())
                 .unitPrice(product.getPrice())
                 .description(product.getDescription())
-                .imageLink(product.getImageUrl())
+                .imageUrl(product.getImageUrl())
                 .quantity(quantity)
                 .build();
     }
