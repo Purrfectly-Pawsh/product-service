@@ -1,6 +1,5 @@
 package de.htw.productmicroservice.port.user.advice;
 
-import de.htw.productmicroservice.core.domain.service.impl.exception.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -8,11 +7,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 
 @RestControllerAdvice
-public class ProductNotFoundAdvice {
+public class NullPointerAdvice {
 
-    @ExceptionHandler(ProductNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    String productNotFoundHandler(ProductNotFoundException e) {
+    @ExceptionHandler(NullPointerException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    String nullPointerHandler(NullPointerException e) {
         return e.getMessage();
     }
 
