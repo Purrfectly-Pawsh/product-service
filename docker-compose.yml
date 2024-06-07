@@ -30,6 +30,8 @@ services:
       - database
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/postgres
+      - SPRING_RABBITMQ_HOST=rabbitmq-container
+      - SPRING_RABBITMQ_PORT=5672
     networks:
         - product-nw
         - service-nw
