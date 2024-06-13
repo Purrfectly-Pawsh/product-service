@@ -26,3 +26,14 @@ logging:
       type:
         descriptor:
           sql.BasicBinder: TRACE
+openapi:
+ service:
+   title: product-service-doc
+   version: 1.0.0 
+   url: http://localhost:8080
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
