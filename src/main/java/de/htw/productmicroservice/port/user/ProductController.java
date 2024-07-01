@@ -23,11 +23,6 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @PostMapping("/products")
-    public Product createProduct(@RequestBody Product product) {
-        return productService.createProduct(product);
-    }
-
     @GetMapping("/products/{id}")
     public Product getProduct(@PathVariable UUID id) {
         return productService.getProductById(id);
