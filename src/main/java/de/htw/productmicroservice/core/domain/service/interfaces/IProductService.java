@@ -11,6 +11,8 @@ public interface IProductService {
 
     Product getProductById(UUID id) throws ProductNotFoundException;
 
+    Product createProduct(Product product);
+
     Iterable<Product> getProductsByKeyword(String keyword);
 
     void addProductToBasket(UUID productId, UUID basketId, int quantity);
