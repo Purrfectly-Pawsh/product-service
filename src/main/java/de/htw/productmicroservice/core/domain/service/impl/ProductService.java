@@ -22,6 +22,16 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    @Override
+    public void deleteProduct(UUID productId) {
+        productRepository.deleteById(productId);
+    }
+
+    @Override
     public Iterable<Product> getAllProducts() {
         return productRepository.findAll();
     }
@@ -29,11 +39,6 @@ public class ProductService implements IProductService {
     @Override
     public Product getProductById(UUID id) throws ProductNotFoundException {
         return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
-    }
-
-    @Override
-    public Product createProduct(Product product) {
-        return productRepository.save(product);
     }
 
     @Override
