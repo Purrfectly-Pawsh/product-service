@@ -41,3 +41,5 @@ networks:
     name: product-nw
   service-nw:
     name: service-nw
+    external: true
+

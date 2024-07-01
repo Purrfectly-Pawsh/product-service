@@ -7,14 +7,15 @@ import java.util.UUID;
 
 public interface IProductService {
 
+    Product createProduct(Product product);
+
+    void deleteProduct(UUID productId);
+
     Iterable<Product> getAllProducts();
 
     Product getProductById(UUID id) throws ProductNotFoundException;
 
-    Product createProduct(Product product);
-
     Iterable<Product> getProductsByKeyword(String keyword);
 
     void addProductToBasket(UUID productId, UUID basketId, int quantity);
-
 }

@@ -10,11 +10,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/v1")
-public class ProductController {
+public class UserProductController {
 
     private final IProductService productService;
 
-    public ProductController(IProductService productService) {
+    public UserProductController(IProductService productService) {
         this.productService = productService;
     }
 

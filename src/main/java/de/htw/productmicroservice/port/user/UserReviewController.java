@@ -11,11 +11,11 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1")
-public class ReviewController {
+public class UserReviewController {
 
     private final IReviewService reviewService;
 
-    public ReviewController(IReviewService reviewService) {
+    public UserReviewController(IReviewService reviewService) {
         this.reviewService = reviewService;
     }
 
