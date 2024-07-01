@@ -22,7 +22,7 @@ public class UserReviewController {
     }
 
     @PostMapping("/products/{id}/reviews")
-    public Review createReview(@RequestBody Review review) {
-        return this.reviewService.createReview(review);
+    public Review createReview(@PathVariable UUID id, @RequestBody Review review) {
+        return this.reviewService.createReview(id, review);
     }
 }
