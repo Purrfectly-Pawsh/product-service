@@ -32,6 +32,11 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    @Override
     public Iterable<Product> getProductsByKeyword(String keyword) {
         Category categoryFromKeyword;
         try {
