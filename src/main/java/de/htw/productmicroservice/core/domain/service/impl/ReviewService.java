@@ -20,4 +20,9 @@ public class ReviewService implements IReviewService {
     public Iterable<Review> getAllByProductId(UUID productId) {
         return this.reviewRepository.findAllByProductId(productId);
     }
+
+    @Override
+    public Review createReview(Review review) {
+        return this.reviewRepository.save(review);
+    }
 }
