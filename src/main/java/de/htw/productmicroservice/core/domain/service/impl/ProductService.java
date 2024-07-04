@@ -42,6 +42,17 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public Product updateProduct(Product product) {
+        if (product.getId() == null) {
+            throw new IllegalArgumentException("Product id must not be null");
+        }
+        if (!productRepository.existsById(product.getId())) {
+            throw new ProductNotFoundException(product.getId());
+        }
+        return productRepository.save(product);
+    }
+
+    @Override
     public Iterable<Product> getProductsByKeyword(String keyword) {
         Category categoryFromKeyword;
         try {

@@ -18,4 +18,6 @@ public interface IProductService {
     Iterable<Product> getProductsByKeyword(String keyword);
 
     void addProductToBasket(UUID productId, UUID basketId, int quantity);
+
+    Product updateProduct(Product product);
 }

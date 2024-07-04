@@ -28,4 +28,9 @@ public class AdminProductController {
         productService.deleteProduct(productId);
     }
 
+
+    @PutMapping("/products")
+    public Product updateProduct(@RequestBody Product product) {
+        return productService.updateProduct(product);
+    }
 }
