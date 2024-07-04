@@ -18,4 +18,9 @@ public class AdminProductController {
     public Product createProduct(@RequestBody Product product) {
         return productService.createProduct(product);
     }
+
+    @PutMapping("/products")
+    public Product updateProduct(@RequestBody Product product) {
+        return productService.updateProduct(product);
+    }
 }

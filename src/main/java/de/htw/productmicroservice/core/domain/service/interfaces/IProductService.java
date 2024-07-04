@@ -17,4 +17,5 @@ public interface IProductService {
 
     void addProductToBasket(UUID productId, UUID basketId, int quantity);
 
+    Product updateProduct(Product product);
 }
