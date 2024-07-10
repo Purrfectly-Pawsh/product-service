@@ -2,10 +2,7 @@ package de.htw.productmicroservice.port.user;
 
 import de.htw.productmicroservice.core.domain.model.Review;
 import de.htw.productmicroservice.core.domain.service.interfaces.IReviewService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -22,5 +19,10 @@ public class UserReviewController {
     @GetMapping("/products/{id}/reviews")
     public Iterable<Review> getReviewsByProductId(@PathVariable UUID id) {
         return this.reviewService.getAllByProductId(id);
+    }
+
+    @PostMapping("/products/{id}/reviews")
+    public Review createReview(@PathVariable UUID id, @RequestBody Review review) {
+        return this.reviewService.createReview(id, review);
     }
 }

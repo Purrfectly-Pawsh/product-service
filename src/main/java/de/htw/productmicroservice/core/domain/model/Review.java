@@ -17,6 +17,7 @@ import java.util.UUID;
 public class Review {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String author;
     private String content;
