@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS review (
   title VARCHAR(255) NOT NULL,
   date TIMESTAMP NOT NULL,
   product_id UUID NOT NULL,
-  FOREIGN KEY (product_id) REFERENCES product(id)
+  FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
 
 DO $$
